@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@color/green_primary"
+    android:layout_margin="2dp">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="205dp"
+        android:layout_height="30dp"
+        android:text="Name"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:paddingLeft="50dp"
+        android:layout_marginTop="10dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_number"
+        android:layout_width="205dp"
+        android:layout_height="30dp"
+        android:text="Number"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_below="@id/tv_name"
+        android:paddingLeft="50dp"/>
+
+    <Button
+        android:id="@+id/b_add"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_toEndOf="@id/tv_name"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="64dp"
+        android:layout_height="23dp"
+        android:text="Add user"
+        android:textColor="@color/white"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@id/b_add"
+        android:layout_toEndOf="@id/tv_name"/>
+
+
+</RelativeLayout>
