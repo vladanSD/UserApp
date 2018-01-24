@@ -7,11 +7,7 @@ import android.content.Context;
 
 import com.nemanja.userapp.data.model.User;
 
-/**
- * Created by Vladan on 12/9/2017.
- */
-
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {User.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;

@@ -3,7 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nemanja.userapp.ui.database.DatabaseActivity">
+    tools:context="com.nemanja.userapp.ui.database.DatabaseActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_search_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/button_search"
+        android:layout_gravity="center"
+        android:text="SEARCH"
+        android:layout_width="120dp"
+        android:layout_height="48dp" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_database_activity"
         android:layout_width="match_parent"

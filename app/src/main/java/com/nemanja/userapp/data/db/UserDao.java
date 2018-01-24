@@ -29,4 +29,7 @@ public interface UserDao {
 
     @Query("select * from User")
     LiveData<List<User>> getUsers();
+
+    @Query("select * from User where name like :inputName")
+    LiveData<List<User>> searchUsers(String inputName);
 }

@@ -15,10 +15,6 @@ import com.nemanja.userapp.data.model.User;
 
 import java.util.List;
 
-/**
- * Created by Vladan on 12/9/2017.
- */
-
 public class DbUserAdapter extends RecyclerView.Adapter<DbUserAdapter.ViewHolder> implements com.nemanja.userapp.util.OnSwipedListener {
     private List<User> list;
     private OnSwipedListener listener;
@@ -39,11 +35,11 @@ public class DbUserAdapter extends RecyclerView.Adapter<DbUserAdapter.ViewHolder
         final User user = list.get(position);
 
         holder.nameTextView.setText(user.getName());
-        holder.numberTextView.setText("+381 "+String.valueOf(user.getNumber()));
+        holder.numberTextView.setText("+381 " + String.valueOf(user.getNumber()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String uri = "tel:+381" + user.getNumber() ;
+                String uri = "tel:+381" + user.getNumber();
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse(uri));
                 holder.context.startActivity(intent);
@@ -61,16 +57,14 @@ public class DbUserAdapter extends RecyclerView.Adapter<DbUserAdapter.ViewHolder
         notifyDataSetChanged();
     }
 
-    public List<User> getList(){
+    public List<User> getList() {
         return list;
     }
 
     @Override
     public void onItemDismiss(int position) {
         listener.onSwiped(position);
-        list.remove(position);
         notifyItemRemoved(position);
-        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -84,7 +78,6 @@ public class DbUserAdapter extends RecyclerView.Adapter<DbUserAdapter.ViewHolder
             numberTextView = itemView.findViewById(R.id.tv_number_db);
             context = itemView.getContext();
         }
-
     }
 
     interface OnSwipedListener {

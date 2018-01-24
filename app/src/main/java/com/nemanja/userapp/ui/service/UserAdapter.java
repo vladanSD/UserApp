@@ -12,9 +12,6 @@ import com.nemanja.userapp.data.model.User;
 
 import java.util.List;
 
-/**
- * Created by Vladan on 12/9/2017.
- */
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 

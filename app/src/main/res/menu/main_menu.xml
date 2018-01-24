@@ -18,4 +18,19 @@
         android:orderInCategory="2"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/volume"
+        android:title="@string/volume"
+        android:icon="@null"
+        android:orderInCategory="3"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/movies"
+        android:title="@string/movies"
+        android:icon="@null"
+        android:orderInCategory="4"
+        app:showAsAction="never" />
+
 </menu>

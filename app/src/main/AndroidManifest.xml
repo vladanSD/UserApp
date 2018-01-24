@@ -13,7 +13,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.service.ServiceActivity"
-            android:label="Service">
+            android:label="Service"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +24,19 @@
         </activity>
         <activity
             android:name=".ui.database.DatabaseActivity"
-            android:label="Database" />
-        <activity android:name=".ui.details.DetailActivity"
-            android:label="User details"></activity>
+            android:label="Database"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.volume.VolumeActivity"
+            android:label="Volume"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.movies.MoviesActivity"
+            android:label="Movies"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

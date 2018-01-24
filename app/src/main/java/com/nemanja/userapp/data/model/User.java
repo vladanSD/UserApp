@@ -6,9 +6,6 @@ import android.arch.persistence.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Vladan on 12/9/2017.
- */
 @Entity
 public class User {
 

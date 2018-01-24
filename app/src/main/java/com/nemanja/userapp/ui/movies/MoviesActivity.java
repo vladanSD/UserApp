@@ -1,61 +1,50 @@
-package com.nemanja.userapp.ui.service;
+package com.nemanja.userapp.ui.movies;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.nemanja.userapp.R;
 import com.nemanja.userapp.data.Repository;
-import com.nemanja.userapp.data.model.User;
+import com.nemanja.userapp.data.model.Movie;
 import com.nemanja.userapp.ui.database.DatabaseActivity;
-import com.nemanja.userapp.ui.movies.MoviesActivity;
+import com.nemanja.userapp.ui.service.ServiceActivity;
 import com.nemanja.userapp.ui.volume.VolumeActivity;
-import com.nemanja.userapp.util.OnCallbackRecieved;
+import com.nemanja.userapp.util.OnCallbackMoviesRecieved;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceActivity extends AppCompatActivity implements OnCallbackRecieved, UserAdapter.OnButtonClicked {
-    RecyclerView recyclerView;
-    UserAdapter userAdapter;
-    Repository repository;
+public class MoviesActivity extends AppCompatActivity implements OnCallbackMoviesRecieved {
 
-    Toast toast;
+    MovieAdapter adapter;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_movies);
 
-        recyclerView = findViewById(R.id.rv_main_activity);
-        recyclerView.setNestedScrollingEnabled(false);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        userAdapter = new UserAdapter(new ArrayList<User>(), this);
+        recyclerView = findViewById(R.id.rv_movie_activity);
+
+        adapter = new MovieAdapter(this, new ArrayList<Movie>());
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+
+        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(userAdapter);
 
-        repository = Repository.getInstance(getApplicationContext());
-        repository.getUsersWithService(this);
+        Repository.getInstance(this).getMovies(this);
     }
 
     @Override
-    public void returnList(List<User> list) {
-        userAdapter.update(list);
-
-    }
-
-    @Override
-    public void onAddButtonClicked(int index) {
-        repository.addUserToDb(userAdapter.getList().get(index));
-        if(toast != null) toast.cancel();
-        toast = Toast.makeText(this, "User added to db", Toast.LENGTH_SHORT);
-        toast.show();
+    public void returnList(List<Movie> list) {
+        adapter.updateList(list);
     }
 
     @Override
@@ -88,4 +77,6 @@ public class ServiceActivity extends AppCompatActivity implements OnCallbackReci
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 }

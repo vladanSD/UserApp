@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -45,4 +46,6 @@ dependencies {
     //http client
     compile "com.squareup.okhttp3:okhttp:3.9.1"
     compile "com.squareup.okhttp3:logging-interceptor:3.9.1"
+
+    compile 'com.github.bumptech.glide:glide:4.3.1'
 }

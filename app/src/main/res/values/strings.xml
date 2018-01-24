@@ -2,4 +2,6 @@
     <string name="app_name">UserApp</string>
     <string name="service">Service</string>
     <string name="database">Database</string>
+    <string name="volume">Volume</string>
+    <string name="movies">Movies</string>
 </resources>

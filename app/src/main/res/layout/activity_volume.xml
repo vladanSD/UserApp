@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nemanja.userapp.ui.volume.VolumeActivity"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:layout_margin="20dp"
+        android:id="@+id/search_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="start|center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:weightSum="30">
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/rb_phone"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:text="Phone" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/rb_video"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:text="Video" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/rb_alarm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:text="Alarm" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="100dp">
+
+        <Button
+            android:id="@+id/smanji"
+            android:text="smanji"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp" />
+
+        <Button
+            android:id="@+id/pojacaj"
+            android:text="pojacaj"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
