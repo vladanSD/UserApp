@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,10 +20,12 @@ import java.util.List;
 public class DbUserAdapter extends RecyclerView.Adapter<DbUserAdapter.ViewHolder> implements com.nemanja.userapp.util.OnSwipedListener {
     private List<User> list;
     private OnSwipedListener listener;
+    private DatabaseActivity activity;
 
-    public DbUserAdapter(List<User> list, OnSwipedListener listener) {
+    public DbUserAdapter(List<User> list, DatabaseActivity activity) {
         this.list = list;
-        this.listener = listener;
+        this.listener = activity;
+        this.activity = activity;
     }
 
     @Override
@@ -39,12 +43,21 @@ public class DbUserAdapter extends RecyclerView.Adapter<DbUserAdapter.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String uri = "tel:+381" + user.getNumber();
+                String number = "tel:+381" + user.getNumber();
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse(uri));
+                intent.setData(Uri.parse(number));
                 holder.context.startActivity(intent);
             }
         });
+
+        holder.smsButton.setOnClickListener(new View.OnClickListener() {
+            String number = "+381" + user.getNumber();
+            @Override
+            public void onClick(View v) {
+                activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", number, null)));
+            }
+        });
+
     }
 
     @Override
@@ -70,12 +83,14 @@ public class DbUserAdapter extends RecyclerView.Adapter<DbUserAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
         TextView numberTextView;
+        Button smsButton;
         Context context;
 
         public ViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.tv_name_db);
             numberTextView = itemView.findViewById(R.id.tv_number_db);
+            smsButton = itemView.findViewById(R.id.button_sms);
             context = itemView.getContext();
         }
     }
